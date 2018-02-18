@@ -52,6 +52,20 @@
                     <input type="checkbox" autocomplete="off"> Debug
                 </label>
             </div>
+            <div class="btn-group" data-toggle="buttons" style="margin-top: 10px; margin-left: 5px;">
+                <label value="Fire" class="rb-a btn btn-secondary active">
+                    <input type="radio" name="attunement" autocomplete="off" checked> Fire
+                </label>
+                <label value="Water" class="rb-a btn btn-secondary">
+                    <input type="radio" name="attunement" autocomplete="off"> Water
+                </label>
+                <label value="Air" class="rb-a btn btn-secondary">
+                    <input type="radio" name="attunement" autocomplete="off"> Air
+                </label>
+                <label value="Earth" class="rb-a btn btn-secondary">
+                    <input type="radio" name="attunement" autocomplete="off"> Earth
+                </label>
+            </div>
             <button style="margin-top: 10px" type="button" class="btn btn-secondary" id="go">Go</button>
             <!-- <div style="margin-top: 10px" class="progress">
                 <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>                <span id="progress-label"></span>

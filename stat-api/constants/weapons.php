@@ -28,8 +28,11 @@
         const Speargun = "Speargun";
         const Spear = "Spear";
         const Trident = "Trident";
+    }
 
-        # Attunements
+    class Attunement {
+
+        # Elementalist Attunements
         const Fire = "Fire";
         const Water = "Water";
         const Air = "Air";

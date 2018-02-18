@@ -10,8 +10,8 @@
 
         abstract public function get_result();
 
-        public function all_constraints_met($weapon) {
-            if ($weapon == null) {
+        public function all_constraints_met($weapon_slot) {
+            if ($weapon_slot == null) {
                 return false;
             }
             if (count($this->modifier_constraints) == 0) {
@@ -19,7 +19,7 @@
             }
             $bool = false;
             foreach ($this->modifier_constraints as $constraint) {
-                $bool = $bool || $constraint->fulfills($weapon);
+                $bool = $bool || $constraint->fulfills($weapon_slot);
             }
             return $bool;
         }
@@ -95,8 +95,8 @@
             $this->weapon = $weapon;
         }
 
-        public function fulfills($selected_weapon) {
-            return $this->weapon == $selected_weapon->type;
+        public function fulfills($selected_weapon_slot) {
+            return $this->weapon == $selected_weapon_slot;
         }
     }
 

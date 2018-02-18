@@ -47,6 +47,6 @@ And it would return this result:
     }
 
 ## Todo
-* Elementalists are special and need extra work
+* ~~Elementalists are special and need extra work~~ Done!
 * Utility Skills (Guardian Signets for example give extra Power)
 * Maybe PvP at some point

@@ -2,6 +2,7 @@
 $(function() {
     var gamemode = "pve";
     var weapon = "A";
+    var attunement = "Fire";
     hljs.initHighlightingOnLoad();
     $("#go").click(function() {
         if ($("#charactername").val() != "" && $("#apikey").val() != "") {
@@ -56,6 +57,7 @@ $(function() {
                     weapon: weapon,
                     gamemode: gamemode,
                     get: getFeatures(),
+                    attunement: attunement,
                     timestamp: $.now()
                 },
                 crossDomain: true,
@@ -79,6 +81,9 @@ $(function() {
     });
     $(".rb-w").click(function() {
         weapon = $(this).attr("value");
+    });
+    $(".rb-a").click(function() {
+        attunement = $(this).attr("value");
     });
     function getFeatures() {
         let vals = [];

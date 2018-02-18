@@ -754,7 +754,7 @@
             31 => new TraitLine(31, "Fire", array(
                     318 => new TraitLineTrait(318, "Sunspot"),
                     319 => new TraitLineTrait(319, "Burning Rage"),
-                    320 => new TraitLineTrait(320, "Empowering Flame", array(new FlatModifier(Attribute::Power, 150, array(new ModifierConstraint(Weapon::Fire)))))
+                    320 => new TraitLineTrait(320, "Empowering Flame", array(new FlatModifier(Attribute::Power, 150, array(new ModifierConstraint(Attunement::Fire)))))
                 ), array(
                     294 => new TraitLineTrait(294, "Pyromancer's Puissance"),
                     296 => new TraitLineTrait(296, "Burning Precision"),
@@ -771,7 +771,7 @@
                     222 => new TraitLineTrait(222, "Electric Discharge"),
                     223 => new TraitLineTrait(223, "Raging Storm")
                 ), array(
-                    214 => new TraitLineTrait(214, "Aeromancer's Training", array(new FlatModifier(Attribute::Precision, 190, array(new ModifierConstraint(Weapon::Air))))), 
+                    214 => new TraitLineTrait(214, "Aeromancer's Training", array(new FlatModifier(Attribute::Precision, 190, array(new ModifierConstraint(Attunement::Air))))), 
                     224 => new TraitLineTrait(224, "One with Air"),
                     226 => new TraitLineTrait(226, "Bolt to the Heart"),
                     227 => new TraitLineTrait(227, "Zephyr's Boon"),
@@ -782,7 +782,7 @@
                     1672 => new TraitLineTrait(1672, "Lightning Rod")
                 )), 
             26 => new TraitLine(26, "Earth", array(
-                    278 => new TraitLineTrait(278, "Stone Flesh", array(new FlatModifier(Attribute::Toughness, 150, array(new ModifierConstraint(Weapon::Earth))))), 
+                    278 => new TraitLineTrait(278, "Stone Flesh", array(new FlatModifier(Attribute::Toughness, 150, array(new ModifierConstraint(Attunement::Earth))))), 
                     279 => new TraitLineTrait(279, "Earthen Blast"),
                     280 => new TraitLineTrait(280, "Geomancer's Defense")
                 ), array(
@@ -843,7 +843,7 @@
                 )), 
             56 => new TraitLine(56, "Weaver", array(
                     2077 => new TraitLineTrait(2077, "Elemental Refreshment"),
-                    2081 => new TraitLineTrait(2081, "Elemental Polyphony", array(new FlatModifier(Attribute::Power, 120, array(new ModifierConstraint(Weapon::Fire))), new FlatModifier(Attribute::Healing_Power, 120, array(new ModifierConstraint(Weapon::Water))), new FlatModifier(Attribute::Precision, 120, array(new ModifierConstraint(Weapon::Air))), new FlatModifier(Attribute::Toughness, 120, array(new ModifierConstraint(Weapon::Earth))))), 
+                    2081 => new TraitLineTrait(2081, "Elemental Polyphony", array(new FlatModifier(Attribute::Power, 120, array(new ModifierConstraint(Attunement::Fire))), new FlatModifier(Attribute::Healing_Power, 120, array(new ModifierConstraint(Attunement::Water))), new FlatModifier(Attribute::Precision, 120, array(new ModifierConstraint(Attunement::Air))), new FlatModifier(Attribute::Toughness, 120, array(new ModifierConstraint(Attunement::Earth))))), 
                     2109 => new TraitLineTrait(2109, "Weaver")
                 ), array(
                     2061 => new TraitLineTrait(2061, "Swift Revenge"),

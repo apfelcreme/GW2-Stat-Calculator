@@ -20,6 +20,7 @@
     $api_key = $_GET['apikey'];
     $game_mode = $_GET['gamemode'];
     $weapon = $_GET['weapon'];
+    $attunement = array_key_exists("attunement", $_GET) ? $_GET['attunement'] : "Earth";
     $get = array_key_exists("get", $_GET) && $_GET['get'] != "" ? explode(",", $_GET['get']) : array("stats");
     
     # require some shit

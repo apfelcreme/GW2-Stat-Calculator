@@ -28,7 +28,7 @@
 
         public function get_stats() {
             
-            global $professions, $debug;            
+            global $professions, $debug, $attunement;            
             $profession = $professions[$this->profession];
 
             $stats = array(
@@ -130,7 +130,10 @@
                 foreach($trait->modifiers as $modifier) {
                     $fulfills = false;
                     foreach($this->get_weapons() as $weapon) {
-                        $fulfills = $fulfills || $modifier->all_constraints_met($weapon);
+                        $fulfills = $fulfills || $modifier->all_constraints_met($weapon->type);
+                    }
+                    if ($this->profession == "Elementalist") { 
+                        $fulfills = $fulfills || $modifier->all_constraints_met($attunement);
                     }
                     if ($fulfills) {
                         if ($modifier instanceof FlatModifier) {
