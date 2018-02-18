@@ -27,6 +27,7 @@
     require_once("class/class.modifier.php");
     require_once("class/class.traitline.php");
     require_once("class/class.trait.php");
+    require_once("class/class.skill.php");
     require_once("class/class.profession.php");
     require_once("class/class.equipment_piece.php");    
     require_once("constants/attributes.php");
@@ -52,7 +53,8 @@
     $character = new Character(
         $json->name, # Character Name
         $json->profession, # Profession Name
-        $json->specializations->$game_mode # Selected Traitlines
+        $json->specializations->$game_mode, # Selected Traitlines
+        $json->skills->$game_mode # Selected Skills
     );
 
     # add all the equipment pieces
@@ -100,6 +102,7 @@
     if (in_array("stats", $get)) $out['stats'] = $character->get_stats();
     if (in_array("equipment", $get)) $out['equipment'] = $character->equipment_pieces;
     if (in_array("traitlines", $get)) $out['traits'] = $character->selected_traitlines;
+    if (in_array("skills", $get)) $out['skills'] = $character->selected_skills;
     if (in_array("debug", $get)) $out['debug'] = $debug;
     
     # done!

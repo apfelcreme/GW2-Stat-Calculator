@@ -5,10 +5,11 @@
      */
     class Character {
 
-        public function __construct($name, $profession, $selected_traitlines) {
+        public function __construct($name, $profession, $selected_traitlines, $selected_skills) {
             $this->name = $name;
             $this->profession = $profession;
             $this->selected_traitlines = $selected_traitlines;
+            $this->selected_skills = $selected_skills;
             $this->equipment_pieces = array();
         }
 
@@ -144,6 +145,22 @@
                             $debug[] = "  Remember Percentage Modifier for Trait: " . $trait->name;
                         }
                     }
+                }
+            }
+
+            # add selected Skills
+            $debug[] = "Skills";
+            $skills = array();
+            $skills[] = $this->selected_skills->heal;
+            foreach ($this->selected_skills->utilities as $utility) $skills[] = $utility;
+            $skills[] = $this->selected_skills->elite;
+
+            foreach ($skills as $skill) {
+                $skill_object = $profession->skills[$skill];
+                $debug[] = " " . $skill_object->name;
+                foreach ($skill_object->modifiers as $modifier) {
+                    $stats[$modifier->attribute] += $modifier->get_result();
+                    $debug[] = "  " . $modifier->get_result()." ".$modifier->attribute;
                 }
             }
 
