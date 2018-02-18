@@ -25,7 +25,7 @@
     line-height: 70px;
 }
 .code {
-    display: none;
+    padding: 10px;
     margin-top: 10px; 
     border-radius: 4px;
     border: 1px solid #aaa;
@@ -33,4 +33,16 @@
     max-height: 600px;
     min-height: 150px;
     overflow-y: scroll;                
+}
+#error {
+    display: none;
+    background-color: #ffc8c8;
+    border: 1px solid #cd9696;
+    border-color: #cd9696;   
+    padding: 10px;
+    margin-top: 10px; 
+    border-radius: 4px;
+    max-height: 600px;
+    min-height: 150px;
+    overflow-y: scroll;
 }

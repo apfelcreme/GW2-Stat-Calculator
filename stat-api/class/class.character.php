@@ -47,7 +47,7 @@
                 Attribute::Boon_Duration => 0,
                 Attribute::Condition_Duration => 0,
                 Attribute::Armor => 0,
-                Attribute::Health => $profession->base_health,
+                Attribute::Health => $profession->base_health
             );
             
             $runes_added = false;
@@ -55,9 +55,9 @@
 
             # Add all equipment modifiers
             foreach ($this->equipment_pieces as $equipment_piece) {
-                $debug[] = "$equipment_piece->slot";
+                $debug[] = $equipment_piece->slot;
                 foreach ($equipment_piece->modifiers as $modifier) {
-                    $debug[] = " ".$modifier->get_result(). " ". $modifier->attribute;
+                    $debug[] = " " . $modifier->get_result() . " " . $modifier->attribute;
                     $stats[$modifier->attribute] += $modifier->get_result();
                 }
 
@@ -134,7 +134,7 @@
                     }
                     if ($fulfills) {
                         if ($modifier instanceof FlatModifier) {
-                            $debug[] = "  ".$modifier->get_result() . " " . $modifier->attribute;
+                            $debug[] = "  " . $modifier->get_result() . " " . $modifier->attribute;
                             $stats[$modifier->attribute] += $modifier->get_result();
                         } else {
                             $percentage_modifiers[] = $modifier;
@@ -149,7 +149,7 @@
             usort($percentage_modifiers, "comparePM");
             foreach($percentage_modifiers as $modifier) {
                 $stats[$modifier->attribute] += $modifier->get_result($stats[$modifier->reference]);
-                $debug[] = " add " . $modifier->value*100 . "% of " . $modifier->reference . " (" . $stats[$modifier->attribute] . ") to " . $modifier->attribute . ": " . $modifier->get_result($stats[$modifier->attribute]) . " " . $modifier->attribute;
+                $debug[] = " add " . $modifier->value * 100 . "% of " . $modifier->reference . " (" . $stats[$modifier->attribute] . ") to " . $modifier->attribute . ": " . $modifier->get_result($stats[$modifier->attribute]) . " " . $modifier->attribute;
             }
             
             # do some nice little calculation to get stuff like health, crit chance or armor
@@ -162,6 +162,6 @@
 
             return $stats;
         }
-
+ 
     }
 ?>

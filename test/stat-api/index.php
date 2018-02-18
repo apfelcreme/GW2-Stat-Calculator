@@ -53,10 +53,13 @@
                 </label>
             </div>
             <button style="margin-top: 10px" type="button" class="btn btn-secondary" id="go">Go</button>
-            <div style="margin-top: 10px" class="progress">
+            <!-- <div style="margin-top: 10px" class="progress">
                 <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>                <span id="progress-label"></span>
-            </div>
-            <pre class="code"><code id="out" style="padding: 10px;"></code></pre>
+            </div> -->
+            <pre class="code">
+                <code id="out" style="padding: 10px; display: none;"></code>
+            </pre>
+            <pre id="error" style="padding: 10px; display: none;"></pre>
         </div>
     </body>
 </html>

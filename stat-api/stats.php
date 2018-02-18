@@ -21,7 +21,7 @@
     $game_mode = $_GET['gamemode'];
     $weapon = $_GET['weapon'];
     $get = array_key_exists("get", $_GET) && $_GET['get'] != "" ? explode(",", $_GET['get']) : array("stats");
-
+    
     # require some shit
     require_once("class/class.modifier.php");
     require_once("class/class.traitline.php");
@@ -39,12 +39,11 @@
     require_once("class/class.character.php");
     require_once("functions.php");
     require_once("../gw2-api/paths.php");
-    
+
     //set error handler
     set_error_handler("custom_error");
 
     # here we go... => get the character info from the official API
-    send_message("Downloading API-Content", 0);
     $json = json_decode(file_get_contents(sprintf($urls['character'], $character_name, $api_key)));
     $debug = array();
 
@@ -56,12 +55,10 @@
     );
 
     # add all the equipment pieces
-    $progress_counter = 25;
     foreach($json->equipment as $piece) {
         if (in_array($piece->slot, $slots)) {
 
-            # get more info from the api
-            send_message("Fetching equipment: " . $piece->slot, $progress_counter);
+            # get more info from the api            
             $item = json_decode(file_get_contents(sprintf($urls['item'], $piece->id)));   
 
             $equipment_piece = new EquipmentPiece(
@@ -93,14 +90,11 @@
                 }
             }
             
-
             $character->add_equipment_piece($equipment_piece); 
-            $progress_counter += 5;
         }
     }
     
     # I'm out
-    send_message("Calculating Stats", 90);
     $out = array();
     if (in_array("stats", $get)) $out['stats'] = $character->get_stats();
     if (in_array("equipment", $get)) $out['equipment'] = $character->equipment_pieces;
@@ -108,6 +102,6 @@
     if (in_array("debug", $get)) $out['debug'] = $debug;
     
     # done!
-    send_message("Done", 100, json_encode($out));
+    echo json_encode($out);
 
 ?>

@@ -56,7 +56,8 @@
     function custom_error($errno, $errstr, $error_file, $error_line, $error_context) {
         global $_GET;
         file_put_contents ("errors.txt", "[" . date("Y-m-d H:i:s") . "] " . $errno . " -> " . $errstr . " in " . $error_file . " [".$error_line."]: " . json_encode($_GET) . PHP_EOL, FILE_APPEND);
-        die('{"error" : "'.$errstr.'" }');
+        http_response_code(500); 
+        die('{"error" : "'. trim(preg_replace('/\s\s+/', ' ', $errstr)) .'" }');
     }
       
     /**
@@ -66,14 +67,14 @@
         return $a->scope > $b->scope;
     }
 
-    function send_message($message, $progress, $data = "") {
-        $msg = array(
-            "progress" => $progress, 
-            "message" => $message,
-            "data" => $data);
-        echo json_encode($msg) . PHP_EOL;  
-        ob_flush();
-        flush();        
-    }
+    // function send_message($message, $progress, $data = "") {
+    //     $msg = array(
+    //         "progress" => $progress, 
+    //         "message" => $message,
+    //         "data" => $data);
+    //     echo json_encode($msg) . PHP_EOL;  
+    //     ob_flush();
+    //     flush();        
+    // }
 
 ?>
